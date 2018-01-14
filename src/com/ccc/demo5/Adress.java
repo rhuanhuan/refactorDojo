@@ -1,6 +1,5 @@
 package com.ccc.demo5;
 
-//TODO: Rename class to fix typo
 public class Adress {
 	private static final String COMMA_SPACE = ", ";
 	private String streetNumber;

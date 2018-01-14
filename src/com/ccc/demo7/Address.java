@@ -10,8 +10,6 @@ public class Address {
 
 	@Override
 	public String toString() {
-		// FIXME: Rename the variable - its a bad practice to have single char
-		// names
 		final StringBuffer a = new StringBuffer(getStreetNumber());
 		a.append(", ");
 		a.append(getStreetName());

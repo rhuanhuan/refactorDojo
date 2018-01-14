@@ -2,7 +2,6 @@ package com.ccc.demo7;
 
 public class PolicyHolder {
 	private String name;
-	// FIXME: Rename the variable to correct the typo
 	private Address adress;
 	private int age;
 

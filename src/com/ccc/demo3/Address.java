@@ -9,10 +9,6 @@ public class Address {
 	private String state;
 	private String zip;
 
-	// Instructor notes:
-	// Expected method signature with both prefix and suffix: format(String
-	// prefix, String value, String suffix)
-
 	@Override
 	public String toString() {
 		final StringBuffer value = new StringBuffer();

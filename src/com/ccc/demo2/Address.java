@@ -8,10 +8,6 @@ public class Address {
 	private String state;
 	private String zip;
 
-	// Instructor notes:
-	// 1. Extract constant: COMMA_SPACE
-	// 2. Extract method: format(String value, String suffix)
-
 	@Override
 	public String toString() {
 		final StringBuffer value = new StringBuffer();
