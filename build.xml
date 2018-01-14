@@ -1,0 +1,59 @@
+<project name="refactoring_exercises" default="test" basedir=".">
+    <description>
+        simple build file to compile and run tests
+    </description>
+
+    <!-- set global properties for this build -->
+    <property name="src.dir" location="src" />
+    <property name="testsrc.dir" location="test" />
+    <property name="build.dir" location="bin" />
+    <property name="testbuild.dir" location="testbin" />
+    <property name="testreports.dir" location="testreports" />
+
+    <path id="src.classpath">
+        <fileset dir="lib">
+            <include name="**/*.jar" />
+        </fileset>
+        <dirset dir="${build.dir}" />
+    </path>
+
+    <path id="testsrc.classpath">
+        <dirset dir="${testbuild.dir}" />
+        <path refid="src.classpath" />
+    </path>
+
+    <target name="init">
+        <tstamp />
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${testbuild.dir}" />
+        <mkdir dir="${testreports.dir}" />
+    </target>
+
+    <target name="compile" depends="init" description="compile the source">
+        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}">
+            <classpath refid="src.classpath" />
+        </javac>
+        <javac includeantruntime="false" srcdir="${testsrc.dir}" destdir="${testbuild.dir}">
+            <classpath refid="testsrc.classpath" />
+        </javac>
+    </target>
+
+    <target name="test" depends="compile" description="runs the tests">
+        <junit haltonfailure="true" printsummary="withOutAndErr">
+            <classpath refid="testsrc.classpath" />
+            <formatter type="plain" />
+            <batchtest fork="yes" todir="${testreports.dir}">
+                <fileset dir="${testsrc.dir}">
+                    <include name="**/*Test*.java" />
+                    <exclude name="**/AllTests.java" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="clean" description="clean up">
+        <delete dir="${build.dir}" />
+        <delete dir="${testbuild.dir}" />
+        <delete dir="${testreports.dir}" />
+    </target>
+</project>

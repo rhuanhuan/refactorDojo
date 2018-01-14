@@ -1,0 +1,36 @@
+package com.ccc.renamevariable;
+
+public class PolicyHolder {
+	private String name;
+	// FIXME: Rename the variable to correct the typo
+	private Address adress;
+	private int age;
+
+	public String getDisplayString() {
+		return getName() + "\n" + getAdress();
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setAdress(Address adress) {
+		this.adress = adress;
+	}
+
+	public Address getAdress() {
+		return adress;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAge() {
+		return age;
+	}
+}
